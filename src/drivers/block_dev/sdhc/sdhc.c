@@ -51,6 +51,15 @@
 
 #define SDHCI_IRQ_EN_BITS (1 | 2 | 0x100 | 0x10000 | 0x20000 | 0x40000 | 0x80000 | 0x100000 | 0x400000 | 0x20 | 0x10 | 0x8)
 
+static void _resp_dump(void) {
+	log_debug("===================");
+	log_debug("USDHC_CMD_RSP0             =0x%08x", REG32_LOAD(BASE_ADDR + 0x10));
+	log_debug("USDHC_CMD_RSP1             =0x%08x", REG32_LOAD(BASE_ADDR + 0x14));
+	log_debug("USDHC_CMD_RSP2             =0x%08x", REG32_LOAD(BASE_ADDR + 0x18));
+	log_debug("USDHC_CMD_RSP3             =0x%08x", REG32_LOAD(BASE_ADDR + 0x1C));
+	log_debug("===================");
+}
+
 static void _reg_dump(void) {
 	log_debug("===================");
 	log_debug("REG DUMP");
